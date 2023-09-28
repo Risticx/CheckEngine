@@ -1,0 +1,18 @@
+﻿@page
+@{
+    Layout ="_Layout";
+}
+@section Scripts {
+    <script src="~/js/svaIskustva.js"></script>
+}
+
+@section Header {
+    <h1 class="display-4 fw-bolder" id="user">@User.Identity.Name</h1>
+    <p class="lead fw-normal text-white-50 mb-0">Sva objavljena iskustva</p>
+}
+@section Sredina {
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mtt-5" style="margin-bottom:48px" id="iskustva">  
+        </div>
+    </section>
+}

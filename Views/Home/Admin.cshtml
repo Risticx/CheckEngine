@@ -1,0 +1,59 @@
+﻿@page
+@{
+    Layout ="_Layout";
+    
+}
+@section Scripts {
+    <script src="~/js/admin.js"></script>
+}              
+@section Header {
+    <h1 class="display-4 fw-bolder">Administrator</h1>
+    <p class="lead fw-normal text-white-50 mb-0">Podešavanja</p>
+}
+
+@section Sredina {
+    @if (User.IsInRole("Admin")) 
+    {
+        <section class="pyy-5">
+            <div class="container px-4 px-lg-5 mtt-5" id="podaci">
+                <p class="text-center lead fw-normal text-white-50">Brisanje korisnika</p>
+                <div class="col mbb-5">
+                    <div>
+                        <div class="alert alert-danger bg-danger text-white font-weight-bold d-none" id="errorDelete"></div>
+                        <div class="alert alert-success p-3 mb-2 bg-success text-white text-center d-none"  id="successDelete"></div>
+                        <label class="text-white">Username korisnika</label>
+                        <input id="username" class="form-control myform" id="floatingInput" placeholder="Username">
+                        <div class="text-center">
+                            <button class="btn btn-danger" type="button" id="btnObrisiKorisnika">Obriši korisnika</button> 
+                        </div>  
+                    </div>
+                </div>
+            </div>
+            <hr>    
+            <div class="container px-4 px-lg-5 mtt-5" id="podaci">
+                <p class="text-center lead fw-normal text-white-50">Rad sa iskustvima</p>
+                <div class="col mbb-5">
+                    <div>
+                        <div class="alert alert-danger bg-danger text-white font-weight-bold d-none" id="errorArchive"></div>
+                        <div class="alert alert-success p-3 mb-2 bg-success text-white text-center d-none"  id="successArchive"></div>
+                        <label class="text-white">Username korisnika</label>
+                        <input class="form-control myform" type="text" id="usernameIskustvo" placeholder="Username">
+                        <label class="text-white">Link vozila</label>
+                        <input class="form-control myform" type="text" id="link" placeholder="Link">
+                        <div class="text-center">
+                            <button class="btn btn-danger" type="button" id="btnUnArchive">Prikazuj iskustvo</button> 
+                            <button class="btn btn-danger" type="button" id="btnArhivirajIskustvo">Arhiviraj iskustvo</button> 
+                        </div>     
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            let navbar = document.getElementById("navbar");
+            navbar.innerHTML += `   <form action="/Home/Logout" method="POST">
+                                        <button id="logoutnav" class="logoutnav" type="submit">Odjavi se</button>
+                                    </form>     `
+        </script>
+    }
+}

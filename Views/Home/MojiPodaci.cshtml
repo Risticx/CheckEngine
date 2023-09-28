@@ -1,0 +1,45 @@
+﻿@page
+@{
+    Layout ="_Layout";
+}
+@section Scripts {
+    <script src="~/js/mojiPodaci.js"></script>
+}              
+
+@section Header {
+    <h1 class="display-4 fw-bolder" id="username">@User.Identity.Name</h1>
+    <p class="lead fw-normal text-white-50 mb-0">Lični podaci</p>
+}
+
+@section Sredina {
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mtt-5" id="podaci">
+            <div class="col mbb-5">
+                <div>
+                    <label class="text-white">Ime</label>
+                    <input class="form-control myform" type="text" id="ime">
+        
+                    <label class="text-white">Prezime</label>
+                    <input class="form-control myform" type="text" id="prezime">
+        
+                    <label class="text-white">Email addresa</label>
+                    <input type="email" class="form-control myform" id="email">
+        
+                    <label class="text-white">Lozinka</label>
+                    <input type="password" class="form-control myform-last" id="password">
+                            
+                    <div id="invalid" class="invalid-feedback d-none">
+                        Unesite staru ili novu šifru!
+                    </div>
+                    <div class="alert alert-success mt-2 bg-success text-white text-center d-none"  id="success"></div>
+                    <div class="alert alert-danger bg-danger text-white font-weight-bold text-center mt-2 d-none" id="error"></div>
+                </div>
+            </div>
+        </div>
+                
+        <div class="text-center">
+            <button type="button" class="btn btn-secondary" id="otkazi">Otkaži</button>
+            <button class="btn btn-danger" type="button" id="izmeni">Izmeni podatke</button> 
+        </div>
+    </section>
+}

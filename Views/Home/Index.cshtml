@@ -1,0 +1,200 @@
+﻿@page
+@using System.Web
+@{
+    Layout ="_Layout";
+}
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="~/js/pocetna.js"></script>
+}
+
+@section Header {
+    <h1 class="display-4 fw-bolder">Check Engine</h1>
+    <p class="lead fw-normal text-white-50">Vidi šta drugi kažu o automobilu koji ti želiš da kupiš...</p>
+}
+
+@section PretragaHeader {
+    <div id="MadeAndYearSearchDiv" class="d-none" >
+        <div class="col-md-6">
+            <div class="row g-2" id="search-row">
+                <div class="col-md">
+                    <div class="form-floating">
+                        <select class="form-select pt-3 pb-1" id="markaSearch">
+                            <option value="ac">AC</option>
+                            <option value="alfa-romeo">Alfa Romeo</option>
+                            <option value="alpina">Alpina</option>
+                            <option value="aro">Aro</option>
+                            <option value="audi">Audi</option>
+                            <option value="austin">Austin</option>
+                            <option value="bentley">Bentley</option>
+                            <option value="bmw">BMW</option><option value="buick">Buick</option>
+                            <option value="cadillac">Cadillac</option><option value="chery">Chery</option><option value="chevrolet">Chevrolet</option>
+                            <option value="chrysler">Chrysler</option><option value="citroen">Citroen</option><option value="cupra">Cupra</option><option value="dacia">Dacia</option>
+                            <option value="daewoo">Daewoo</option><option value="daihatsu">Daihatsu</option><option value="dodge">Dodge</option><option value="ferrari">Ferrari</option><option value="fiat">Fiat</option><option value="ford">Ford</option><option value="gaz">GAZ</option><option value="great-wall">Great Wall</option><option value="honda">Honda</option><option value="hummer">Hummer</option><option value="hyundai">Hyundai</option><option value="infiniti">Infiniti</option><option value="isuzu">Isuzu</option><option value="jaguar">Jaguar</option><option value="jeep">Jeep</option><option value="kia">Kia</option><option value="lada">Lada</option><option value="lamborghini">Lamborghini</option><option value="lancia">Lancia</option><option value="land-rover">Land Rover</option><option value="lexus">Lexus</option><option value="lincoln">Lincoln</option><option value="linzda">Linzda</option><option value="mahindra">Mahindra</option><option value="maserati">Maserati</option><option value="mazda">Mazda</option><option value="mercedes-benz">Mercedes Benz</option><option value="mg">MG</option><option value="mini">MINI</option><option value="mitsubishi">Mitsubishi</option><option value="moskvitch">Moskvitch</option><option value="nissan">Nissan</option><option value="nsu">NSU</option><option value="opel">Opel</option><option value="peugeot">Peugeot</option><option value="polski-fiat">Polski Fiat</option><option value="porsche">Porsche</option><option value="renault">Renault</option><option value="rolls-royce">Rolls Royce</option><option value="rover">Rover</option><option value="saab">Saab</option><option value="seat">Seat</option><option value="simca">Simca</option><option value="smart">Smart</option><option value="ssangyong">SsangYong</option><option value="subaru">Subaru</option><option value="suzuki">Suzuki</option><option value="tata">Tata</option><option value="tavria">Tavria</option><option value="tesla">Tesla</option><option value="toyota">Toyota</option><option value="trabant">Trabant</option><option value="uaz">UAZ</option><option value="vauxhall">Vauxhall</option><option value="volkswagen">Volkswagen</option><option value="volvo">Volvo</option><option value="wartburg">Wartburg</option><option value="zastava">Zastava</option><option value="zhidou">ZhiDou</option><option value="skoda">Škoda</option><option value="ostalo">Ostalo</option>
+                        </select>
+                        <label id="srcPocetna"for="floatingInputGrid">Marka vozila</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating">
+                        <select class="form-select pt-3 pb-1" id="godisteSearch">
+                            <option value="2023">2023 god.</option><option value="2022">2022 god.</option><option value="2021">2021 god.</option><option value="2020">2020 god.</option><option value="2019">2019 god.</option><option value="2018">2018 god.</option><option value="2017">2017 god.</option><option value="2016">2016 god.</option><option value="2015">2015 god.</option><option value="2014">2014 god.</option><option value="2013">2013 god.</option><option value="2012">2012 god.</option><option value="2011">2011 god.</option><option value="2010">2010 god.</option><option value="2009">2009 god.</option><option value="2008">2008 god.</option><option value="2007">2007 god.</option><option value="2006">2006 god.</option><option value="2005">2005 god.</option><option value="2004">2004 god.</option><option value="2003">2003 god.</option><option value="2002">2002 god.</option><option value="2001">2001 god.</option><option value="2000">2000 god.</option><option value="1999">1999 god.</option><option value="1998">1998 god.</option><option value="1997">1997 god.</option><option value="1996">1996 god.</option><option value="1995">1995 god.</option><option value="1994">1994 god.</option><option value="1993">1993 god.</option><option value="1992">1992 god.</option><option value="1991">1991 god.</option><option value="1990">1990 god.</option><option value="1989">1989 god.</option><option value="1988">1988 god.</option><option value="1987">1987 god.</option><option value="1986">1986 god.</option><option value="1985">1985 god.</option><option value="1984">1984 god.</option><option value="1983">1983 god.</option><option value="1982">1982 god.</option><option value="1981">1981 god.</option><option value="1980">1980 god.</option><option value="1979">1979 god.</option><option value="1978">1978 god.</option><option value="1977">1977 god.</option><option value="1976">1976 god.</option><option value="1975">1975 god.</option><option value="1970">1970 god.</option><option value="1965">1965 god.</option><option value="1960">1960 god.</option><option value="1955">1955 god.</option><option value="1950">1950 god.</option><option value="1945">1945 god.</option><option value="1940">1940 god.</option><option value="1935">1935 god.</option><option value="1930">1930 god.</option>
+                        </select>
+                        <label id="srcPocetna" for="floatingInputGrid">Godište vozila</label>
+                    </div>
+                </div>
+                <div class="col-md btn-group">
+                    <button type="button" class="btn btn-danger" id="btnPretrazii">Pretraga</button>
+                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="sr-only">Opcije</span>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" type="button" id="link">Pretraga vozila po linku</a>
+                        <a class="dropdown-item">Pretraga vozila po marki i godištu</a>                                
+                    </div>
+                </div>     
+            </div>
+        </div>
+        <div class="alert alert-danger bg-danger text-white font-weight-bold text-center mt-2 d-none" id="error-year"></div>
+    </div>
+            
+    <div id="LinkSearchDiv">
+        <div class="col-md-6">
+            <div class="search-2 btn-group"> <i class='bx bxs-map'></i>
+                <input  id="searchBox" type="text" placeholder="Pretraga vozila po linku">
+                <button type="button" class="btn btn-danger" id="btnPretrazi">Pretraga</button>
+                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Opcije</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item">Pretraga vozila po linku</a>
+                    <a class="dropdown-item" type="button" id="combined">Pretraga vozila po marki i godištu</a>                                
+                </div>        
+            </div>     
+        </div>
+        <div class="alert alert-danger bg-danger text-white font-weight-bold text-center mt-2 d-none" id="error-link"></div>
+    </div> 
+}
+
+@section Sredina {
+    <!-- Modali -->
+    <modal>
+        <!-- Modal: Dodaj iskustvo -->
+        <div class="container mt-3">
+            <div class="modal fade" id="modalIskustvo"  data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Dodaj novo iskustvo o vozilu</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label >Link vozila</label>
+                                <input class="form-control" id="linkDodaj">
+                                <label for="FormControlSelect1 ">Marka vozila:</label>
+                                <select class="form-select" id="FormControlSelect11">
+                                    <option value="ac">AC</option><option value="alfa-romeo">Alfa Romeo</option><option value="alpina">Alpina</option><option value="aro">Aro</option><option value="audi">Audi</option><option value="austin">Austin</option><option value="bentley">Bentley</option><option value="bmw">BMW</option><option value="buick">Buick</option><option value="cadillac">Cadillac</option><option value="chery">Chery</option><option value="chevrolet">Chevrolet</option><option value="chrysler">Chrysler</option><option value="citroen">Citroen</option><option value="cupra">Cupra</option><option value="dacia">Dacia</option><option value="daewoo">Daewoo</option><option value="daihatsu">Daihatsu</option><option value="dodge">Dodge</option><option value="ferrari">Ferrari</option><option value="fiat">Fiat</option><option value="ford">Ford</option><option value="gaz">GAZ</option><option value="great-wall">Great Wall</option><option value="honda">Honda</option><option value="hummer">Hummer</option><option value="hyundai">Hyundai</option><option value="infiniti">Infiniti</option><option value="isuzu">Isuzu</option><option value="jaguar">Jaguar</option><option value="jeep">Jeep</option><option value="kia">Kia</option><option value="lada">Lada</option><option value="lamborghini">Lamborghini</option><option value="lancia">Lancia</option><option value="land-rover">Land Rover</option><option value="lexus">Lexus</option><option value="lincoln">Lincoln</option><option value="linzda">Linzda</option><option value="mahindra">Mahindra</option><option value="maserati">Maserati</option><option value="mazda">Mazda</option><option value="mercedes-benz">Mercedes Benz</option><option value="mg">MG</option><option value="mini">MINI</option><option value="mitsubishi">Mitsubishi</option><option value="moskvitch">Moskvitch</option><option value="nissan">Nissan</option><option value="nsu">NSU</option><option value="opel">Opel</option><option value="peugeot">Peugeot</option><option value="polski-fiat">Polski Fiat</option><option value="porsche">Porsche</option><option value="renault">Renault</option><option value="rolls-royce">Rolls Royce</option><option value="rover">Rover</option><option value="saab">Saab</option><option value="seat">Seat</option><option value="simca">Simca</option><option value="smart">Smart</option><option value="ssangyong">SsangYong</option><option value="subaru">Subaru</option><option value="suzuki">Suzuki</option><option value="tata">Tata</option><option value="tavria">Tavria</option><option value="tesla">Tesla</option><option value="toyota">Toyota</option><option value="trabant">Trabant</option><option value="uaz">UAZ</option><option value="vauxhall">Vauxhall</option><option value="volkswagen">Volkswagen</option><option value="volvo">Volvo</option><option value="wartburg">Wartburg</option><option value="zastava">Zastava</option><option value="zhidou">ZhiDou</option><option value="skoda">Škoda</option><option value="ostalo">Ostalo</option>
+                                </select>
+                                <label for="FormControlSelect2">Godište vozila:</label>
+                                <select class="form-select" id="FormControlSelect12">
+                                    <option value="2023">2023 god.</option><option value="2022">2022 god.</option><option value="2021">2021 god.</option><option value="2020">2020 god.</option><option value="2019">2019 god.</option><option value="2018">2018 god.</option><option value="2017">2017 god.</option><option value="2016">2016 god.</option><option value="2015">2015 god.</option><option value="2014">2014 god.</option><option value="2013">2013 god.</option><option value="2012">2012 god.</option><option value="2011">2011 god.</option><option value="2010">2010 god.</option><option value="2009">2009 god.</option><option value="2008">2008 god.</option><option value="2007">2007 god.</option><option value="2006">2006 god.</option><option value="2005">2005 god.</option><option value="2004">2004 god.</option><option value="2003">2003 god.</option><option value="2002">2002 god.</option><option value="2001">2001 god.</option><option value="2000">2000 god.</option><option value="1999">1999 god.</option><option value="1998">1998 god.</option><option value="1997">1997 god.</option><option value="1996">1996 god.</option><option value="1995">1995 god.</option><option value="1994">1994 god.</option><option value="1993">1993 god.</option><option value="1992">1992 god.</option><option value="1991">1991 god.</option><option value="1990">1990 god.</option><option value="1989">1989 god.</option><option value="1988">1988 god.</option><option value="1987">1987 god.</option><option value="1986">1986 god.</option><option value="1985">1985 god.</option><option value="1984">1984 god.</option><option value="1983">1983 god.</option><option value="1982">1982 god.</option><option value="1981">1981 god.</option><option value="1980">1980 god.</option><option value="1979">1979 god.</option><option value="1978">1978 god.</option><option value="1977">1977 god.</option><option value="1976">1976 god.</option><option value="1975">1975 god.</option><option value="1970">1970 god.</option><option value="1965">1965 god.</option><option value="1960">1960 god.</option><option value="1955">1955 god.</option><option value="1950">1950 god.</option><option value="1945">1945 god.</option><option value="1940">1940 god.</option><option value="1935">1935 god.</option><option value="1930">1930 god.</option>
+                                </select>
+                                <label for="FormControlTextarea1">Vaše iskustvo:</label>
+                                <textarea class="form-control" id="FormControlTextarea11" rows="10"></textarea>
+                                <div class="alert alert-danger bg-danger text-white font-weight-bold d-none" id="error"></div>
+                                <div class="alert alert-success p-3 mb-2 bg-success text-white d-none"  id="success"></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+                            <button type="button" class="btn btn-danger" id="sacuvaj">Sačuvaj iskustvo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+        <!-- Modal: Pretraga -->
+        <div class="container mt-3 ">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog " role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Rezultati pretrage</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body" >
+                            <div class="card" style="width: auto; height: auto;">
+                                <img class="auto-img-top" id="autoSlika" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                                <div class="card-body">
+                                    <h5 class="card-title" id="marka">-</h5>
+                                    <p class="card-text" id="godiste">-</p>
+                                </div>
+                                <ul class="list-group list-group-flush" id="iskustvoModal">
+                                </ul>
+                            </div>
+                        </div>            
+                        <div class="modal-footer">
+                            <div class="card-body">
+                                <a class="card-link" id="linkVozila"></a>
+                            </div>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Zatvori</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </modal>
+
+    <div class="d-felx">
+        <div class="mt-4 mb-3" style="width:100%;">
+            <h4 class="text-white-50  font san">NEDAVNA ISKUSTVA</h4>
+        </div>
+    </div>
+
+    <section class="py-5">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="vozila">                
+            </div>
+        </div>
+    </section>  
+
+    @if (User.Identity.IsAuthenticated && !User.IsInRole("Admin"))
+    {
+        <script>
+            let navbar = document.getElementById("navbar");
+            navbar.innerHTML += `   <li class="nav-item"><a class="nav-link" data-bs-toggle="modal" data-bs-target="#modalIskustvo" type="button" id="dodajIskustva">Dodaj iskustvo</a></li>
+                                    <li class="nav-item dropdown" id = "user">
+                                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Moj nalog</a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <li><a class="dropdown-item" href="/Home/SvaIskustva">Sva iskustva</a></li>
+                                            <li><hr class="dropdown-divider"/></li>
+                                            <li><a class="dropdown-item" href="/Home/MojiPodaci">Moji podaci</a></li>
+                                        </ul>
+                                    </li>
+                                    <form action="/Home/Logout" method="POST">
+                                        <button id="logoutnav" class="logoutnav" type="submit">Odjavi se</button>
+                                    </form>     `
+        </script>
+    }
+    else if(User.IsInRole("Admin"))
+    {
+        <script>
+            let navbar = document.getElementById("navbar");
+            navbar.innerHTML += `   <li class="nav-item"><a class="nav-link" href="/Home/Admin" id = "register">Admin</a></li>
+                                    <form action="/Home/Logout" method="POST">
+                                        <button id="logoutnav" class="logoutnav" type="submit">Odjavi se</button>
+                                    </form>     `
+        </script>
+    }
+    else
+    {
+        <script>
+            let navbar = document.getElementById("navbar");
+            navbar.innerHTML += `   <li class="nav-item"><a class="nav-link" href="/Home/Register" id="register">Registracija</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/Home/Login?ReturnUrl=@HttpUtility.UrlEncode("/Home/Index")" id = "login">Prijava</a></li>    `
+        </script>
+    }
+}
